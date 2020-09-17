@@ -316,6 +316,9 @@
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="signInPressed:" destination="98k-nn-eDT" eventType="touchUpInside" id="mBN-aH-joT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kn-mA-Skf">
                                 <rect key="frame" x="20" y="421" width="374" height="49"/>
@@ -341,6 +344,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emailTextField" destination="b06-yl-Uu8" id="Udf-YL-1Sp"/>
+                        <outlet property="passwordTextField" destination="o4A-eX-KFw" id="cRs-97-ETM"/>
                         <segue destination="7PE-Bu-d0h" kind="show" identifier="LoginToStatus" id="uQe-h8-57a"/>
                     </connections>
                 </viewController>

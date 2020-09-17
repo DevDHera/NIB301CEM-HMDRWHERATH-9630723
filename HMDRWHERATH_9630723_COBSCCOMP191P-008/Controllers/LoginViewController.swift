@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Firebase
+import SCLAlertView
 
 class LoginViewController: UIViewController {
-
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,9 +24,21 @@ class LoginViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
-
+    
     @IBAction func loginViewClosePressed(_ sender: UIBarButtonItem) {
         self.tabBarController?.selectedIndex = 0
     }
-
+    
+    @IBAction func signInPressed(_ sender: UIButton) {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+                if let e = error {
+                    print(e)
+                    SCLAlertView().showError("Registration Error", subTitle: e.localizedDescription)
+                } else {
+                    self.performSegue(withIdentifier: "LoginToStatus", sender: self)
+                }
+            }
+        }
+    }
 }

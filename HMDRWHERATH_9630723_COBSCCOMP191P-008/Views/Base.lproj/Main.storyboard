@@ -219,6 +219,9 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpPressed:" destination="YgN-dq-Zdq" eventType="touchUpInside" id="QQU-u3-Ojk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b96-vA-gKX">
                                 <rect key="frame" x="20" y="589" width="374" height="49"/>
@@ -250,10 +253,33 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="Yxc-2g-UyM" id="JPX-9j-LhO"/>
+                        <outlet property="firstNameTextField" destination="NWm-Ds-Hwk" id="MeR-Ml-Rf6"/>
+                        <outlet property="lastNameTextField" destination="yFf-s9-OTC" id="3Da-BF-nSt"/>
+                        <outlet property="passwordTextField" destination="lLE-TW-WTB" id="Sep-TF-ro0"/>
+                        <segue destination="7PE-Bu-d0h" kind="show" identifier="RegisterToStatus" id="s4B-OF-zUr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sr5-19-jXW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1279.7101449275362" y="300"/>
+            <point key="canvasLocation" x="619" y="1079"/>
+        </scene>
+        <!--Status View Controller-->
+        <scene sceneID="fHd-6U-vbF">
+            <objects>
+                <viewController id="7PE-Bu-d0h" customClass="StatusViewController" customModule="HMDRWHERATH_9630723_COBSCCOMP191P_008" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HdS-ne-vVg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Egq-aR-yLd"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ruG-dy-S3k"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5IC-Py-o2o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="619" y="1854"/>
         </scene>
         <!--Login-->
         <scene sceneID="zCO-ZU-LW7">
@@ -314,10 +340,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="7PE-Bu-d0h" kind="show" identifier="LoginToStatus" id="uQe-h8-57a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNG-2k-3pN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="408.69565217391306" y="300"/>
+            <point key="canvasLocation" x="-501" y="1079"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zij-yB-xKC">
@@ -358,6 +387,9 @@
             <point key="canvasLocation" x="-501.44927536231887" y="300"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="uQe-h8-57a"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="heart.circle" catalog="system" width="128" height="121"/>

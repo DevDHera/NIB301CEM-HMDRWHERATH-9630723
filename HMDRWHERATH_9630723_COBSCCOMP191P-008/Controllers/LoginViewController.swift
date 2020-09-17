@@ -22,6 +22,10 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "LoginToStatus", sender: self)
+        }
     }
     
     
@@ -36,6 +40,8 @@ class LoginViewController: UIViewController {
                     print(e)
                     SCLAlertView().showError("Registration Error", subTitle: e.localizedDescription)
                 } else {
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
                     self.performSegue(withIdentifier: "LoginToStatus", sender: self)
                 }
             }

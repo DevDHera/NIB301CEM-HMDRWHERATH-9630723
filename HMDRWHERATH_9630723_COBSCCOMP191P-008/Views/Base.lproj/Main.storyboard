@@ -247,7 +247,7 @@
                         <viewLayoutGuide key="safeArea" id="xFS-FQ-lmi"/>
                     </view>
                     <navigationItem key="navigationItem" id="1uY-Hy-VCd">
-                        <barButtonItem key="rightBarButtonItem" image="x.square" catalog="system" id="hhn-Gf-rvH">
+                        <barButtonItem key="rightBarButtonItem" title="Close" id="hhn-Gf-rvH">
                             <connections>
                                 <action selector="registerViewClosePressed:" destination="YgN-dq-Zdq" id="OU2-um-aRh"/>
                             </connections>
@@ -275,7 +275,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Egq-aR-yLd"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ruG-dy-S3k"/>
+                    <navigationItem key="navigationItem" id="ruG-dy-S3k">
+                        <barButtonItem key="rightBarButtonItem" title="Close" id="KMv-qd-P65">
+                            <connections>
+                                <action selector="statusViewClosePressed:" destination="7PE-Bu-d0h" id="GSC-tM-qAb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5IC-Py-o2o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -337,7 +343,7 @@
                         <viewLayoutGuide key="safeArea" id="jMg-QI-nPJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="92P-ad-b94">
-                        <barButtonItem key="rightBarButtonItem" image="x.square" catalog="system" id="x9K-Kd-nbk">
+                        <barButtonItem key="rightBarButtonItem" title="Close" id="x9K-Kd-nbk">
                             <connections>
                                 <action selector="loginViewClosePressed:" destination="98k-nn-eDT" id="dDB-ca-ufP"/>
                             </connections>
@@ -366,6 +372,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Lhd-Py-ilh"/>
                         <segue destination="ihH-mp-FJZ" kind="relationship" relationship="viewControllers" id="8Sm-pC-GAi"/>
+                        <segue destination="y4b-Pp-bU3" kind="relationship" relationship="viewControllers" id="sqD-Dx-9Ez"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neT-JJ-wQz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -391,17 +398,75 @@
             </objects>
             <point key="canvasLocation" x="-501.44927536231887" y="300"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="jRp-we-3wT">
+            <objects>
+                <viewController id="WBH-JH-iSj" customClass="SettingsViewController" customModule="HMDRWHERATH_9630723_COBSCCOMP191P_008" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D0T-ZB-CaJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKB-zW-UO6">
+                                <rect key="frame" x="0.0" y="765" width="414" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="WBH-JH-iSj" eventType="touchUpInside" id="Lpq-P5-sCs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="GUq-VJ-rVq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uWl-Dv-0d6">
+                        <barButtonItem key="rightBarButtonItem" title="Close" id="v1c-Od-WA0">
+                            <connections>
+                                <action selector="settingsViewClosePressed:" destination="WBH-JH-iSj" id="qP5-Zt-v8e"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="logoutButton" destination="vKB-zW-UO6" id="eIl-wl-mMK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zZy-0M-1WL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1584.057971014493" y="314.73214285714283"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="uPh-ut-m3z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y4b-Pp-bU3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" selectedImage="gear" id="Lhd-Wx-xX0"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K9p-9Q-f7m">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WBH-JH-iSj" kind="relationship" relationship="rootViewController" id="Wmz-2R-OiU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IRq-Ym-i2i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="673.91304347826087" y="314.73214285714283"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uQe-h8-57a"/>
+        <segue reference="s4B-OF-zUr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="heart.circle" catalog="system" width="128" height="121"/>
         <image name="heart.slash.circle" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="nibm-logo" width="100" height="33.5"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="x.square" catalog="system" width="128" height="114"/>
     </resources>
 </document>

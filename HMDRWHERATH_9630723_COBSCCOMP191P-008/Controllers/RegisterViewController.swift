@@ -24,6 +24,10 @@ class RegisterViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "RegisterToStatus", sender: self)
+        }
     }
     
     @IBAction func alreadyHaveAnAccountPressed(_ sender: UIButton) {
@@ -41,6 +45,10 @@ class RegisterViewController: UIViewController {
                     print(e)
                     SCLAlertView().showError("Registration Error", subTitle: e.localizedDescription)
                 } else {
+                    self.firstNameTextField.text = ""
+                    self.lastNameTextField.text = ""
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
                     self.performSegue(withIdentifier: "RegisterToStatus", sender: self)
                 }
             }

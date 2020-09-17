@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SCLAlertView
 
 class RegisterViewController: UIViewController {
     
@@ -38,6 +39,7 @@ class RegisterViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let e = error {
                     print(e)
+                    SCLAlertView().showError("Registration Error", subTitle: e.localizedDescription)
                 } else {
                     self.performSegue(withIdentifier: "RegisterToStatus", sender: self)
                 }

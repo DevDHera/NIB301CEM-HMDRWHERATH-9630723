@@ -8,5 +8,7 @@ target 'HMDRWHERATH_9630723_COBSCCOMP191P-008' do
   # Pods for HMDRWHERATH_9630723_COBSCCOMP191P-008
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  
+  pod 'SCLAlertView'
 
 end

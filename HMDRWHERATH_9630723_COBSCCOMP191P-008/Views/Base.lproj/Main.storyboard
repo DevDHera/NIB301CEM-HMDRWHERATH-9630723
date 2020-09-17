@@ -15,11 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="NlI-4q-vQP">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NlI-4q-vQP">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBp-m6-XlB" userLabel="Safe Actions View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="213.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="192.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njd-sG-teC">
                                                 <rect key="frame" x="194" y="33" width="192" height="145"/>
@@ -67,10 +67,10 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBi-3B-ZCK" userLabel="Notification View">
-                                        <rect key="frame" x="0.0" y="213.5" width="414" height="133"/>
+                                        <rect key="frame" x="0.0" y="192.5" width="414" height="192"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCa-op-KYu" userLabel="Summary View">
-                                        <rect key="frame" x="0.0" y="346.5" width="414" height="221.5"/>
+                                        <rect key="frame" x="0.0" y="384.5" width="414" height="192.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="University Case Update" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fh7-pd-dau">
                                                 <rect key="frame" x="20" y="21" width="216" height="24"/>
@@ -152,7 +152,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9M6-wc-ybo" userLabel="Map View">
-                                        <rect key="frame" x="0.0" y="568" width="414" height="201"/>
+                                        <rect key="frame" x="0.0" y="577" width="414" height="192"/>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -228,6 +228,9 @@
                                 <state key="normal" title="Already have an account?">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="alreadyHaveAnAccountPressed:" destination="YgN-dq-Zdq" eventType="touchUpInside" id="SO7-Xc-YNq"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="By signing up, you agree with the Terms of Service and Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0k-ey-z4T">
                                 <rect key="frame" x="9" y="509" width="400" height="50"/>
@@ -240,10 +243,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="xFS-FQ-lmi"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1uY-Hy-VCd">
+                        <barButtonItem key="rightBarButtonItem" image="x.square" catalog="system" id="hhn-Gf-rvH">
+                            <connections>
+                                <action selector="registerViewClosePressed:" destination="YgN-dq-Zdq" id="OU2-um-aRh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sr5-19-jXW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="370" y="300"/>
+            <point key="canvasLocation" x="1279.7101449275362" y="300"/>
         </scene>
         <!--Login-->
         <scene sceneID="zCO-ZU-LW7">
@@ -289,16 +299,25 @@
                                 <state key="normal" title="Need an account?">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="YgN-dq-Zdq" kind="show" id="Mme-tV-jOW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="jMg-QI-nPJ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Update" image="plus" catalog="system" selectedImage="plus" id="6fw-Ya-yQu"/>
+                    <navigationItem key="navigationItem" id="92P-ad-b94">
+                        <barButtonItem key="rightBarButtonItem" image="x.square" catalog="system" id="x9K-Kd-nbk">
+                            <connections>
+                                <action selector="loginViewClosePressed:" destination="98k-nn-eDT" id="dDB-ca-ufP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNG-2k-3pN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-501.44927536231887" y="300"/>
+            <point key="canvasLocation" x="408.69565217391306" y="300"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zij-yB-xKC">
@@ -312,12 +331,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Lhd-Py-ilh"/>
-                        <segue destination="98k-nn-eDT" kind="relationship" relationship="viewControllers" id="8Sm-pC-GAi"/>
+                        <segue destination="ihH-mp-FJZ" kind="relationship" relationship="viewControllers" id="8Sm-pC-GAi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neT-JJ-wQz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-501" y="-475"/>
+        </scene>
+        <!--Update-->
+        <scene sceneID="MFo-mn-tfI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ihH-mp-FJZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Update" image="plus" catalog="system" selectedImage="plus" id="6fw-Ya-yQu"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3wH-mJ-5ok">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="98k-nn-eDT" kind="relationship" relationship="rootViewController" id="J80-n4-bho"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MkI-mP-Nai" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-501.44927536231887" y="300"/>
         </scene>
     </scenes>
     <resources>
@@ -327,5 +365,6 @@
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="nibm-logo" width="100" height="33.5"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="x.square" catalog="system" width="128" height="114"/>
     </resources>
 </document>

@@ -17,6 +17,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -39,17 +41,31 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func signUpPressed(_ sender: UIButton) {
-        if let email = emailTextField.text, let password = passwordTextField.text {
+        if let email = emailTextField.text, let password = passwordTextField.text, let firstName = firstNameTextField.text, let lastName = lastNameTextField.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let e = error {
                     print(e)
                     SCLAlertView().showError("Registration Error", subTitle: e.localizedDescription)
                 } else {
-                    self.firstNameTextField.text = ""
-                    self.lastNameTextField.text = ""
-                    self.emailTextField.text = ""
-                    self.passwordTextField.text = ""
-                    self.performSegue(withIdentifier: Constants.registerSegue, sender: self)
+                    if let uid = authResult?.user.uid {
+                        self.db.collection(Constants.UserStore.collectionName).addDocument(data: [
+                            Constants.UserStore.uidField: uid,
+                            Constants.UserStore.firstNameField: firstName,
+                            Constants.UserStore.lastNameField: lastName,
+                            Constants.UserStore.emailField: email,
+                            Constants.UserStore.bodyTemperatureField: 0.0
+                        ]) { (error) in
+                            if let err = error {
+                                SCLAlertView().showError("Firestore Error", subTitle: err.localizedDescription)
+                            } else {
+                                self.firstNameTextField.text = ""
+                                self.lastNameTextField.text = ""
+                                self.emailTextField.text = ""
+                                self.passwordTextField.text = ""
+                                self.performSegue(withIdentifier: Constants.registerSegue, sender: self)
+                            }
+                        }
+                    }
                 }
             }
         }

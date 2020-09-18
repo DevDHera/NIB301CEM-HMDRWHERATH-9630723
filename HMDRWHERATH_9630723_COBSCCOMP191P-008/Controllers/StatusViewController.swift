@@ -10,10 +10,16 @@ import UIKit
 import Firebase
 
 class StatusViewController: UIViewController {
+    
+    @IBOutlet weak var firstNameLabel: UILabel!
+    
+    let db = Firestore.firestore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        
+        fetchUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,5 +34,38 @@ class StatusViewController: UIViewController {
     
     @IBAction func statusViewClosePressed(_ sender: UIBarButtonItem) {
         self.tabBarController?.selectedIndex = 0
+    }
+    
+    func fetchUser()  {
+//        db.collection(Constants.UserStore.collectionName).getDocuments { (querySnapshot, error) in
+//            if let e = error {
+//                print(e.localizedDescription)
+//            } else {
+//
+//                if let snapshotDocuemnts = querySnapshot?.documents {
+//                    for doc in snapshotDocuemnts {
+//                        print(doc.data())
+//                    }
+//                }
+//            }
+//        }
+        if let uid = Auth.auth().currentUser?.uid {
+            db.collection(Constants.UserStore.collectionName).whereField(Constants.UserStore.uidField, isEqualTo: uid).getDocuments { (querySnapshot, error) in
+                if let e = error {
+                    print(e.localizedDescription)
+                } else {
+                    if let snapshotDocuments = querySnapshot?.documents {
+                        let data = snapshotDocuments[0].data()
+                        if let firstName = data[Constants.UserStore.firstNameField] as? String {
+                            print(firstName)
+                            DispatchQueue.main.async {
+                                self.firstNameLabel.text = firstName
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
     }
 }

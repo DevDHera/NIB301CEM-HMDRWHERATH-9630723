@@ -22,4 +22,14 @@ struct Constants {
     
 //    CELLS
     static let settingsCellIdentifier = "SettingsCell"
+    
+//    COLLECTIONS
+    struct UserStore {
+        static let collectionName = "users"
+        static let uidField = "uid"
+        static let firstNameField = "firstName"
+        static let lastNameField = "lastName"
+        static let emailField = "email"
+        static let bodyTemperatureField = "bodyTemp"
+    }
 }

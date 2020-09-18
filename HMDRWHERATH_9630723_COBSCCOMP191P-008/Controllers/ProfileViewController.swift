@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Constants.profileName
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+        
+        if Auth.auth().currentUser == nil {
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
     
 

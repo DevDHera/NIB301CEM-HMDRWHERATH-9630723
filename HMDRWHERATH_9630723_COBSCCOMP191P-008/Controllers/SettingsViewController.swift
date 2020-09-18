@@ -72,6 +72,10 @@ extension SettingsViewController: UITableViewDataSource {
 
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if Auth.auth().currentUser == nil, indexPath.row == 0 {
+            SCLAlertView().showInfo("Not logged in", subTitle: "Please logged in to access this functionality")
+            return
+        }
         performSegue(withIdentifier: settingsCells[indexPath.row].segue, sender: self)
     }
 }

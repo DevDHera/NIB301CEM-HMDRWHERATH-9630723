@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         
         if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "LoginToStatus", sender: self)
+            self.performSegue(withIdentifier: Constants.loginSegue, sender: self)
         }
     }
     
@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
                 } else {
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
-                    self.performSegue(withIdentifier: "LoginToStatus", sender: self)
+                    self.performSegue(withIdentifier: Constants.loginSegue, sender: self)
                 }
             }
         }

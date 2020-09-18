@@ -26,7 +26,7 @@ class RegisterViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         
         if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "RegisterToStatus", sender: self)
+            self.performSegue(withIdentifier: Constants.registerSegue, sender: self)
         }
     }
     
@@ -49,7 +49,7 @@ class RegisterViewController: UIViewController {
                     self.lastNameTextField.text = ""
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
-                    self.performSegue(withIdentifier: "RegisterToStatus", sender: self)
+                    self.performSegue(withIdentifier: Constants.registerSegue, sender: self)
                 }
             }
         }

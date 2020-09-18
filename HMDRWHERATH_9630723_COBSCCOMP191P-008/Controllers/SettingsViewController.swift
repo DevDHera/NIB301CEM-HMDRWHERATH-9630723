@@ -16,7 +16,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Settings"
+        title = Constants.settingsName
     }
     
     override func viewWillAppear(_ animated: Bool) {

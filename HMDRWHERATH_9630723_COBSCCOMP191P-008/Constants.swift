@@ -10,7 +10,16 @@ struct Constants {
 //    SEGUES
     static let loginSegue = "LoginToStatus"
     static let registerSegue = "RegisterToStatus"
+    static let settingsToProfileSegue = "SettingsToProfile"
+    static let settingsToContactUsSegue = "SettingsToContactUs"
+    static let settingsToShareSegue = "SettingsToShare"
     
 //    VIEWS
     static let settingsName = "Settings"
+    static let profileName = "Profile"
+    static let contactUsName = "Contact Us / About Us"
+    static let shareName = "Share"
+    
+//    CELLS
+    static let settingsCellIdentifier = "SettingsCell"
 }

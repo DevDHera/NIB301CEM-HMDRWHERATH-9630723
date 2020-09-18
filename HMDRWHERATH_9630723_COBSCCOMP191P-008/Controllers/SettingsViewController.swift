@@ -13,10 +13,20 @@ import SCLAlertView
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var settingsCells: [SettingsCell] = [
+        SettingsCell(title: "Profile", segue: Constants.settingsToProfileSegue),
+        SettingsCell(title: "Contact Us / About Us", segue: Constants.settingsToContactUsSegue),
+        SettingsCell(title: "Share with Friend", segue: Constants.settingsToShareSegue)
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Constants.settingsName
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,5 +53,25 @@ class SettingsViewController: UIViewController {
             SCLAlertView().showError("Registration Error", subTitle: signOutError as! String)
         }
         
+    }
+}
+
+extension SettingsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return settingsCells.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.settingsCellIdentifier, for: indexPath)
+        cell.textLabel?.text = settingsCells[indexPath.row].title
+        return cell
+    }
+    
+    
+}
+
+extension SettingsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: settingsCells[indexPath.row].segue, sender: self)
     }
 }

@@ -8,16 +8,26 @@
 
 import UIKit
 import Firebase
+import SCLAlertView
 
 class StatusViewController: UIViewController {
     
-    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var createNotificationView: UIView!
+    @IBOutlet weak var newSurveyView: UIView!
+    @IBOutlet weak var bodyTempTextField: UITextField!
+    @IBOutlet weak var bodyTempLabel: UILabel!    
+    @IBOutlet weak var lastUpdatedAtLabel: UILabel!
     
     let db = Firestore.firestore()
-
+    
+    var userDocRefId = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        
+        let createNoticationViewWithAction = UITapGestureRecognizer(target: self, action: #selector(createNotificationAction(_:)))
+        createNotificationView.addGestureRecognizer(createNoticationViewWithAction)
         
         fetchUser()
     }
@@ -37,35 +47,86 @@ class StatusViewController: UIViewController {
     }
     
     func fetchUser()  {
-//        db.collection(Constants.UserStore.collectionName).getDocuments { (querySnapshot, error) in
-//            if let e = error {
-//                print(e.localizedDescription)
-//            } else {
-//
-//                if let snapshotDocuemnts = querySnapshot?.documents {
-//                    for doc in snapshotDocuemnts {
-//                        print(doc.data())
-//                    }
-//                }
-//            }
-//        }
+        //        db.collection(Constants.UserStore.collectionName).getDocuments { (querySnapshot, error) in
+        //            if let e = error {
+        //                print(e.localizedDescription)
+        //            } else {
+        //
+        //                if let snapshotDocuemnts = querySnapshot?.documents {
+        //                    for doc in snapshotDocuemnts {
+        //                        print(doc.data())
+        //                    }
+        //                }
+        //            }
+        //        }
         if let uid = Auth.auth().currentUser?.uid {
+            let alertViewResponder: SCLAlertViewResponder = SCLAlertView().showWait("Fetching...", subTitle: "Wait until we fetch your data")
+            
             db.collection(Constants.UserStore.collectionName).whereField(Constants.UserStore.uidField, isEqualTo: uid).getDocuments { (querySnapshot, error) in
                 if let e = error {
                     print(e.localizedDescription)
+                    SCLAlertView().showError("Error", subTitle: e.localizedDescription)
                 } else {
                     if let snapshotDocuments = querySnapshot?.documents {
+                        self.userDocRefId = snapshotDocuments[0].documentID
                         let data = snapshotDocuments[0].data()
-                        if let firstName = data[Constants.UserStore.firstNameField] as? String {
-                            print(firstName)
+                        if let bodyTemp = data[Constants.UserStore.bodyTemperatureField] as? Double, let lastBodyTempUpdateAt = data[Constants.UserStore.lastBodyTempUpdatedAtField] as? Timestamp, let role = data[Constants.UserStore.roleField] as? String {
                             DispatchQueue.main.async {
-                                self.firstNameLabel.text = firstName
+                                if role == UserRole.STUDENT.rawValue {
+                                    self.createNotificationView.isHidden = true
+                                }
                             }
+                            
+                            let formatter = MeasurementFormatter()
+                            let measurement = Measurement(value: bodyTemp, unit: UnitTemperature.celsius)
+                            let temperature = formatter.string(from: measurement)
+                            self.bodyTempLabel.text = temperature
+                            
+                            let dateFormatter = RelativeDateTimeFormatter()
+                            dateFormatter.unitsStyle = .full
+                            let lastUpdate = dateFormatter.localizedString(for: lastBodyTempUpdateAt.dateValue(), relativeTo: Date())
+                            self.lastUpdatedAtLabel.text = "Last Update: \(lastUpdate)"
+                            
+                        } else {
+                            self.bodyTempLabel.text = "N/A"
+                            self.lastUpdatedAtLabel.text = "Last Update: N/A"
                         }
+                        
+                        alertViewResponder.close()
                     }
                     
                 }
             }
         }
     }
+    
+    @objc func createNotificationAction(_ sender:UITapGestureRecognizer){
+        print("CC")
+    }
+    
+    @IBAction func updateBodyTempPressed(_ sender: Any) {
+        if let bodyTemp = Double(bodyTempTextField.text!) {
+                db.collection(Constants.UserStore.collectionName).document(userDocRefId).updateData([
+                    Constants.UserStore.bodyTemperatureField: bodyTemp,
+                    Constants.UserStore.lastBodyTempUpdatedAtField: Date()
+                ]) { error in
+                    if let e = error {
+                        SCLAlertView().showError("Update Error", subTitle: e.localizedDescription)
+                        return
+                    }
+                    
+                    let formatter = MeasurementFormatter()
+                    let measurement = Measurement(value: bodyTemp, unit: UnitTemperature.celsius)
+                    let temperature = formatter.string(from: measurement)
+                    self.bodyTempLabel.text = temperature
+                    
+                    let dateFormatter = RelativeDateTimeFormatter()
+                    dateFormatter.unitsStyle = .full
+                    let lastUpdate = dateFormatter.localizedString(for: Date(), relativeTo: Date())
+                    self.lastUpdatedAtLabel.text = "Last Update: \(lastUpdate)"
+            }
+        }
+        
+    }
+    
 }

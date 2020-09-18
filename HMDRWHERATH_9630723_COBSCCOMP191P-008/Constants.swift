@@ -31,5 +31,7 @@ struct Constants {
         static let lastNameField = "lastName"
         static let emailField = "email"
         static let bodyTemperatureField = "bodyTemp"
+        static let roleField = "role"
+        static let lastBodyTempUpdatedAtField = "lastBodyTempUpdatedAt"
     }
 }

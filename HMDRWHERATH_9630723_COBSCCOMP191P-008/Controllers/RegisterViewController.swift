@@ -53,7 +53,7 @@ class RegisterViewController: UIViewController {
                             Constants.UserStore.firstNameField: firstName,
                             Constants.UserStore.lastNameField: lastName,
                             Constants.UserStore.emailField: email,
-                            Constants.UserStore.bodyTemperatureField: 0.0
+                            Constants.UserStore.roleField: UserRole.STUDENT.rawValue
                         ]) { (error) in
                             if let err = error {
                                 SCLAlertView().showError("Firestore Error", subTitle: err.localizedDescription)

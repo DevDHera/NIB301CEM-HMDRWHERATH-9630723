@@ -12,3 +12,8 @@ struct SettingsCell {
     let title: String
     let segue: String
 }
+
+struct NotificationCell {
+    let title: String
+    let description: String
+}

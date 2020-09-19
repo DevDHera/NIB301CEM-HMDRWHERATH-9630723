@@ -20,9 +20,11 @@ struct Constants {
     static let profileName = "Profile"
     static let contactUsName = "Contact Us / About Us"
     static let shareName = "Share"
+    static let allNotifications = "All Notifications"
     
 //    CELLS
     static let settingsCellIdentifier = "SettingsCell"
+    static let notificationCellIdentifier = "NotificationCell"
     
 //    COLLECTIONS
     struct UserStore {

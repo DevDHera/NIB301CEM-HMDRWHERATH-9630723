@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		387F35E258F5E1DE61E81C35 /* Pods_HMDRWHERATH_9630723_COBSCCOMP191P_008.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CDE71DB25DF2CE5EE5039C /* Pods_HMDRWHERATH_9630723_COBSCCOMP191P_008.framework */; };
 		6B0115C92515449100A27D54 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0115C82515449100A27D54 /* User.swift */; };
+		6B1DBC452515EAEF00C51ACB /* ColorPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1DBC442515EAEF00C51ACB /* ColorPointAnnotation.swift */; };
 		6B3E07992513426900D34727 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E07982513426900D34727 /* LoginViewController.swift */; };
 		6B3E079B2513429300D34727 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E079A2513429300D34727 /* RegisterViewController.swift */; };
 		6B3EE5C72514889E00788194 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EE5C62514889E00788194 /* Service.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		08CDE71DB25DF2CE5EE5039C /* Pods_HMDRWHERATH_9630723_COBSCCOMP191P_008.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HMDRWHERATH_9630723_COBSCCOMP191P_008.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B0115C82515449100A27D54 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6B1DBC442515EAEF00C51ACB /* ColorPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPointAnnotation.swift; sourceTree = "<group>"; };
 		6B3E07982513426900D34727 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6B3E079A2513429300D34727 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		6B3EE5C62514889E00788194 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				6B6CDA3525145C2E000C1D63 /* GoogleService-Info.plist */,
 				6B6CDA3325145954000C1D63 /* Constants.swift */,
 				6B3EE5C8251488A600788194 /* Service */,
+				6B1DBC442515EAEF00C51ACB /* ColorPointAnnotation.swift */,
 			);
 			path = "HMDRWHERATH_9630723_COBSCCOMP191P-008";
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				6B0115C92515449100A27D54 /* User.swift in Sources */,
 				6BFCE53625133D670010A5D8 /* AppDelegate.swift in Sources */,
 				6B6CDA3F25146BA9000C1D63 /* ShareViewController.swift in Sources */,
+				6B1DBC452515EAEF00C51ACB /* ColorPointAnnotation.swift in Sources */,
 				6B6CDA3825146196000C1D63 /* Cell.swift in Sources */,
 				6BA102202513DA54003AED13 /* StatusViewController.swift in Sources */,
 				6BFCE53825133D670010A5D8 /* SceneDelegate.swift in Sources */,

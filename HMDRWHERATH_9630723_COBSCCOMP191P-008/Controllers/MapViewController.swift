@@ -20,10 +20,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     var userDocRefId = ""
     
+    var geoPoints: [GeoPoint] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Danger Areas"
+        
+        fetchUsers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +76,38 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                                 print(e)
                                 return
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func fetchUsers() {
+        geoPoints = []
+        db.collection(Constants.UserStore.collectionName).addSnapshotListener { (querySnapshot, error) in
+            if let e = error {
+                print(e.localizedDescription)
+            } else {
+                
+                if let snapshotDocuemnts = querySnapshot?.documents {
+                    for doc in snapshotDocuemnts {
+                        let data = doc.data()
+                        if let geopoint = data[Constants.UserStore.location] as? GeoPoint {
+                            self.geoPoints.append(geopoint)
+                        }
+                    }
+                    DispatchQueue.main.async {
+                        for i in self.geoPoints{
+                            if let latitude = i.value(forKey: "latitude"), let longitude = i.value(forKey: "longitude") {
+                                let point = MKPointAnnotation()
+//                                let annotationView = MKMarkerAnnotationView()
+//                                annotationView.markerTintColor = .black
+//                                let point = ColorPointAnnotation(pinColor: .black)
+                                point.coordinate = CLLocationCoordinate2D(latitude: latitude as! CLLocationDegrees, longitude: longitude as! CLLocationDegrees)
+                                self.mapView.addAnnotation(point)
+                            }
+  
                         }
                     }
                 }

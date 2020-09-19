@@ -156,6 +156,17 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9M6-wc-ybo" userLabel="Map View">
                                         <rect key="frame" x="0.0" y="544" width="414" height="181"/>
+                                        <subviews>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="V5t-bs-3KI">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="181"/>
+                                            </mapView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="V5t-bs-3KI" firstAttribute="top" secondItem="9M6-wc-ybo" secondAttribute="top" id="AEV-mh-6Pa"/>
+                                            <constraint firstAttribute="trailing" secondItem="V5t-bs-3KI" secondAttribute="trailing" id="ftG-KZ-0Ot"/>
+                                            <constraint firstAttribute="bottom" secondItem="V5t-bs-3KI" secondAttribute="bottom" id="hKH-3w-jx1"/>
+                                            <constraint firstItem="V5t-bs-3KI" firstAttribute="leading" secondItem="9M6-wc-ybo" secondAttribute="leading" id="yg1-1O-iKZ"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -173,6 +184,7 @@
                     <connections>
                         <outlet property="deathCountLabel" destination="6Ez-st-Gej" id="O2u-JP-VZP"/>
                         <outlet property="infectedCountLabel" destination="haT-LD-uyT" id="Kp4-J1-qHq"/>
+                        <outlet property="mapView" destination="V5t-bs-3KI" id="vpZ-1D-uUL"/>
                         <outlet property="recoveredCountLabel" destination="Dtj-IO-csh" id="xo3-kD-xmF"/>
                     </connections>
                 </viewController>

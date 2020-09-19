@@ -8,14 +8,18 @@
 
 import UIKit
 import Firebase
+import MapKit
+import CoreLocation
 
-class HomeViewContoller: UIViewController {
+class HomeViewContoller: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var infectedCountLabel: UILabel!
     @IBOutlet weak var deathCountLabel: UILabel!    
     @IBOutlet weak var recoveredCountLabel: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
     
     let db = Firestore.firestore()
+    let locationManager = CLLocationManager()
     var summeryView = ["infected": 0, "deaths": 0, "recovers": 0]
     
     override func viewDidLoad() {
@@ -26,6 +30,29 @@ class HomeViewContoller: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            locationManager.stopUpdatingLocation()
+            
+            render(location)
+        }
+    }
+    
+    func render(_ location: CLLocation) {
+        let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+        let pin = MKPointAnnotation()
+        pin.coordinate = coordinate
+        mapView.addAnnotation(pin)
     }
     
     func fetchUsers() {

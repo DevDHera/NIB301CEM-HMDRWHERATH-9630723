@@ -54,7 +54,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     if let snapshotDocuments = querySnapshot?.documents {
                         self.userDocRefId = snapshotDocuments[0].documentID
                         let data = snapshotDocuments[0].data()
-                        if let bodyTemp = data[Constants.UserStore.bodyTemperatureField] as? Double, let joinedDate = data[Constants.UserStore.joinedDateField] as? Timestamp, let firstName = data[Constants.UserStore.firstNameField] as? String, let lastName = data[Constants.UserStore.lastNameField] as? String, let profileImage = data[Constants.UserStore.profileImageField] as? String {
+                        print(data)
+                        if let bodyTemp = data[Constants.UserStore.bodyTemperatureField] as? Double, let joinedDate = data[Constants.UserStore.joinedDateField] as? Timestamp, let firstName = data[Constants.UserStore.firstNameField] as? String, let lastName = data[Constants.UserStore.lastNameField] as? String {
                             
                             let formatter = MeasurementFormatter()
                             let measurement = Measurement(value: bodyTemp, unit: UnitTemperature.celsius)
@@ -68,20 +69,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                                 self.lastNameTextField.text = lastName
                             }
                             
-                            let url = URL(string: profileImage)
+                            if let profileImage = data[Constants.UserStore.profileImageField] as? String {
                             
-                            let task = URLSession.shared.dataTask(with: url!) { (data, _, error) in
-                                guard let data = data, error == nil else {
-                                    return
+                                let url = URL(string: profileImage)
+                                
+                                let task = URLSession.shared.dataTask(with: url!) { (data, _, error) in
+                                    guard let data = data, error == nil else {
+                                        return
+                                    }
+                                    
+                                    DispatchQueue.main.async {
+                                        let image = UIImage(data: data)
+                                        self.profileImageView.image = image
+                                    }
                                 }
                                 
-                                DispatchQueue.main.async {
-                                    let image = UIImage(data: data)
-                                    self.profileImageView.image = image
-                                }
+                                task.resume()
                             }
-                            
-                            task.resume()
                             
                         } else {
                             self.bodyTempLabel.text = "N/A"

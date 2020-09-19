@@ -34,5 +34,11 @@ struct Constants {
         static let roleField = "role"
         static let lastBodyTempUpdatedAtField = "lastBodyTempUpdatedAt"
         static let joinedDateField = "joinedDate"
+        static let profileImageField = "profileImage"
+    }
+    
+//    Storage
+    struct Storage {
+        static let path = "uploads/profile"
     }
 }

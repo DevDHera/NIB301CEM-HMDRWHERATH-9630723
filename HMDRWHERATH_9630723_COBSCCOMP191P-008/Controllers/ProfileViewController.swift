@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SCLAlertView
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var memberSinceLabel: UILabel!
     @IBOutlet weak var bodyTempLabel: UILabel!
     @IBOutlet weak var firstNameTextField: UITextField!    
@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     
     let db = Firestore.firestore()
+    let storage = Storage.storage().reference()
     
     var userDocRefId = ""
 
@@ -53,7 +54,7 @@ class ProfileViewController: UIViewController {
                     if let snapshotDocuments = querySnapshot?.documents {
                         self.userDocRefId = snapshotDocuments[0].documentID
                         let data = snapshotDocuments[0].data()
-                        if let bodyTemp = data[Constants.UserStore.bodyTemperatureField] as? Double, let joinedDate = data[Constants.UserStore.joinedDateField] as? Timestamp, let firstName = data[Constants.UserStore.firstNameField] as? String, let lastName = data[Constants.UserStore.lastNameField] as? String {
+                        if let bodyTemp = data[Constants.UserStore.bodyTemperatureField] as? Double, let joinedDate = data[Constants.UserStore.joinedDateField] as? Timestamp, let firstName = data[Constants.UserStore.firstNameField] as? String, let lastName = data[Constants.UserStore.lastNameField] as? String, let profileImage = data[Constants.UserStore.profileImageField] as? String {
                             
                             let formatter = MeasurementFormatter()
                             let measurement = Measurement(value: bodyTemp, unit: UnitTemperature.celsius)
@@ -66,6 +67,21 @@ class ProfileViewController: UIViewController {
                                 self.firstNameTextField.text = firstName
                                 self.lastNameTextField.text = lastName
                             }
+                            
+                            let url = URL(string: profileImage)
+                            
+                            let task = URLSession.shared.dataTask(with: url!) { (data, _, error) in
+                                guard let data = data, error == nil else {
+                                    return
+                                }
+                                
+                                DispatchQueue.main.async {
+                                    let image = UIImage(data: data)
+                                    self.profileImageView.image = image
+                                }
+                            }
+                            
+                            task.resume()
                             
                         } else {
                             self.bodyTempLabel.text = "N/A"
@@ -81,7 +97,70 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func imageUIViewAction(_ sender:UITapGestureRecognizer){
-        print("CC")
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        guard let imageData = image.pngData() else {
+            return
+        }
+        
+        if let uid = Auth.auth().currentUser?.uid {
+            let ref = "\(Constants.Storage.path)/\(uid).png"
+            
+            storage.child(ref).putData(imageData, metadata: nil, completion: { _, error in
+                if let e = error {
+                    SCLAlertView().showError("Upload Error", subTitle: e.localizedDescription)
+                    return
+                }
+                
+                self.storage.child(ref).downloadURL { (url, error) in
+                    guard let url = url, error == nil else {
+                        return
+                    }
+                    
+                    let urlString = url.absoluteString
+                    
+                    self.db.collection(Constants.UserStore.collectionName).document(self.userDocRefId).updateData([
+                        Constants.UserStore.profileImageField: urlString
+                    ]) { error in
+                        if let e = error {
+                            SCLAlertView().showError("Upload Error", subTitle: e.localizedDescription)
+                            return
+                        }
+                        SCLAlertView().showSuccess("Success", subTitle: "Successfully Uploaded")
+                        
+                        let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
+                            guard let data = data, error == nil else {
+                                return
+                            }
+                            
+                            DispatchQueue.main.async {
+                                let image = UIImage(data: data)
+                                self.profileImageView.image = image
+                            }
+                        }
+                        
+                        task.resume()
+                    }
+                }
+                
+            })
+        }
+        
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
     
@@ -95,7 +174,7 @@ class ProfileViewController: UIViewController {
                         SCLAlertView().showError("Update Error", subTitle: e.localizedDescription)
                         return
                     }
-                    SCLAlertView().showSuccess("Success", subTitle: "Successfully Uploaded")
+                    SCLAlertView().showSuccess("Success", subTitle: "Successfully Updated")
                     self.navigationItem.title = "\(firstName) \(lastName)"
             }
         }

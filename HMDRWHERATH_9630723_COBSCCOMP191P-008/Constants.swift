@@ -35,6 +35,8 @@ struct Constants {
         static let lastBodyTempUpdatedAtField = "lastBodyTempUpdatedAt"
         static let joinedDateField = "joinedDate"
         static let profileImageField = "profileImage"
+        static let location = "location"
+        static let covidStatus = "covidStatus"
     }
     
 //    Storage

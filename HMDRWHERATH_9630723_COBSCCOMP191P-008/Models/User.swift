@@ -14,3 +14,10 @@ enum UserRole: String {
     case NON_ACADEMIC_STAFF = "NON_ACADEMIC_STAFF"
     case ADMIN = "ADMIN"
 }
+
+enum UserCovidStatus: String {
+    case NONE = "NONE"
+    case INFECTED = "INFECTED"
+    case RECOVERED = "RECOVERED"
+    case DEATH = "DEATH"
+}

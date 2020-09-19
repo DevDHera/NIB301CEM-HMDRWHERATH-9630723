@@ -9,14 +9,21 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
     
+    let db = Firestore.firestore()
+    
+    var userDocRefId = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Danger Areas"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +42,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             
             render(location)
+            updateLocations(location)
         }
     }
     
@@ -47,5 +55,29 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         pin.coordinate = coordinate
         mapView.addAnnotation(pin)
     }
-
+    
+    func updateLocations(_ location: CLLocation) {
+        if let uid = Auth.auth().currentUser?.uid {
+            db.collection(Constants.UserStore.collectionName).whereField(Constants.UserStore.uidField, isEqualTo: uid).getDocuments { (querySnapshot, error) in
+                if let e = error {
+                    print(e.localizedDescription)
+                } else {
+                    if let snapshotDocuments = querySnapshot?.documents {
+                        self.userDocRefId = snapshotDocuments[0].documentID
+                        
+                        self.db.collection(Constants.UserStore.collectionName).document(self.userDocRefId).updateData([
+                            Constants.UserStore.location: GeoPoint(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                        ]) { error in
+                            if let e = error {
+                                print(e)
+                                return
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
 }

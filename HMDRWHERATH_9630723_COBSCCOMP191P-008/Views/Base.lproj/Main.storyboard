@@ -170,6 +170,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="qlf-6G-vap"/>
+                    <connections>
+                        <outlet property="deathCountLabel" destination="6Ez-st-Gej" id="O2u-JP-VZP"/>
+                        <outlet property="infectedCountLabel" destination="haT-LD-uyT" id="Kp4-J1-qHq"/>
+                        <outlet property="recoveredCountLabel" destination="Dtj-IO-csh" id="xo3-kD-xmF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -17,6 +17,8 @@ class HomeViewContoller: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var deathCountLabel: UILabel!    
     @IBOutlet weak var recoveredCountLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var notificationTitleLabel: UILabel!    
+    @IBOutlet weak var notificationDescriptionLabel: UILabel!
     
     let db = Firestore.firestore()
     let locationManager = CLLocationManager()
@@ -25,6 +27,7 @@ class HomeViewContoller: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUsers()
+        getRecentNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,6 +82,25 @@ class HomeViewContoller: UIViewController, CLLocationManagerDelegate {
                         self.infectedCountLabel.text = "\(self.summeryView["infected"]!)"
                         self.deathCountLabel.text = "\(self.summeryView["deaths"]!)"
                         self.recoveredCountLabel.text = "\(self.summeryView["recovers"]!)"
+                    }
+                }
+            }
+        }
+    }
+    
+    func getRecentNotification() {
+        db.collection(Constants.NotificationStore.collectionName).order(by: Constants.NotificationStore.createdAtField, descending: true).limit(to: 1).addSnapshotListener { (querySnapshot, error) in
+            if let e = error {
+                print(e.localizedDescription)
+            } else {
+                if let snapshotDocuemnts = querySnapshot?.documents {
+                    let data = snapshotDocuemnts[0].data()
+                    
+                    if let title = data[Constants.NotificationStore.titleField] as? String, let description = data[Constants.NotificationStore.descriptionField] as? String {
+                        DispatchQueue.main.async {
+                            self.notificationTitleLabel.text = title
+                            self.notificationDescriptionLabel.text = description
+                        }
                     }
                 }
             }

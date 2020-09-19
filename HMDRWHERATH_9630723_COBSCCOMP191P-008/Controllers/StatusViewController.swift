@@ -101,7 +101,7 @@ class StatusViewController: UIViewController {
     }
     
     @objc func createNotificationAction(_ sender:UITapGestureRecognizer){
-        print("CC")
+        performSegue(withIdentifier: Constants.statusToCreateNotification, sender: self)
     }
     
     @IBAction func updateBodyTempPressed(_ sender: Any) {

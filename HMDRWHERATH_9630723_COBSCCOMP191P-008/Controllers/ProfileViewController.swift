@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     if let snapshotDocuments = querySnapshot?.documents {
                         self.userDocRefId = snapshotDocuments[0].documentID
                         let data = snapshotDocuments[0].data()
-                        print(data)
+                        
                         if let bodyTemp = data[Constants.UserStore.bodyTemperatureField] as? Double, let joinedDate = data[Constants.UserStore.joinedDateField] as? Timestamp, let firstName = data[Constants.UserStore.firstNameField] as? String, let lastName = data[Constants.UserStore.lastNameField] as? String {
                             
                             let formatter = MeasurementFormatter()

@@ -56,6 +56,31 @@ class HMDRWHERATH_9630723_COBSCCOMP191P_008UITests: XCTestCase {
         XCTAssertTrue(surveyView.exists)
         
     }
+    
+    func testInValidLoginAlertShow() {
+        let validPassword = "12345678"
+        let validEmail = "test001@gmail.comhh"
+        
+        XCUIApplication().activate()
+        let app = XCUIApplication()
+        app.tabBars.buttons["Update"].tap()
+        
+        let emailTextField = app.textFields["Email"]
+        XCTAssertTrue(emailTextField.exists)
+        emailTextField.tap()
+        emailTextField.typeText(validEmail)
+        
+        let passwordTextField = app.secureTextFields["Password"]
+        XCTAssertTrue(passwordTextField.exists)
+        passwordTextField.tap()
+        passwordTextField.typeText(validPassword)
+        
+        app.buttons["Sign In"].tap()
+        
+        let alertView = app/*@START_MENU_TOKEN@*/.buttons["Done"]/*[[".otherElements[\"SCLAlertView\"].buttons[\"Done\"]",".buttons[\"Done\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssertTrue(alertView.exists)
+        
+    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {

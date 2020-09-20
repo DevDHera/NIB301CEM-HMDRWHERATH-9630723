@@ -38,6 +38,7 @@ class StatusViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        createNotificationView.isHidden = true
         
         if Auth.auth().currentUser == nil {
             navigationController?.popToRootViewController(animated: true)
@@ -63,8 +64,8 @@ class StatusViewController: UIViewController {
                         let data = snapshotDocuments[0].data()
                         if let bodyTemp = data[Constants.UserStore.bodyTemperatureField] as? Double, let lastBodyTempUpdateAt = data[Constants.UserStore.lastBodyTempUpdatedAtField] as? Timestamp, let role = data[Constants.UserStore.roleField] as? String {
                             DispatchQueue.main.async {
-                                if role == UserRole.STUDENT.rawValue {
-                                    self.createNotificationView.isHidden = true
+                                if role != UserRole.STUDENT.rawValue {
+                                    self.createNotificationView.isHidden = false
                                 }
                             }
                             

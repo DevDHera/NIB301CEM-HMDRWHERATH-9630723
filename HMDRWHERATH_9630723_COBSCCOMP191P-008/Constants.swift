@@ -22,6 +22,7 @@ struct Constants {
     static let contactUsName = "Contact Us / About Us"
     static let shareName = "Share"
     static let allNotifications = "All Notifications"
+    static let safeActions = "Safe Actions"
     
 //    CELLS
     static let settingsCellIdentifier = "SettingsCell"

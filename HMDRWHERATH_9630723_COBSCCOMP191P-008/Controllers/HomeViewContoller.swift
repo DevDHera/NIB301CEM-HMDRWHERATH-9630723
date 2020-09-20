@@ -59,8 +59,8 @@ class HomeViewContoller: UIViewController, CLLocationManagerDelegate {
     }
     
     func fetchUsers() {
-        summeryView = ["infected": 0, "deaths": 0, "recovers": 0]
         db.collection(Constants.UserStore.collectionName).addSnapshotListener { (querySnapshot, error) in
+            self.summeryView = ["infected": 0, "deaths": 0, "recovers": 0]
             if let e = error {
                 print(e.localizedDescription)
             } else {
@@ -70,6 +70,7 @@ class HomeViewContoller: UIViewController, CLLocationManagerDelegate {
                         let data = doc.data()
                         if let status = data[Constants.UserStore.covidStatus] as? String {
                             if status == UserCovidStatus.INFECTED.rawValue {
+                                print("ss")
                                 self.summeryView["infected"] = self.summeryView["infected"]! + 1
                             } else if status == UserCovidStatus.DEATH.rawValue {
                                 self.summeryView["deaths"] = self.summeryView["deaths"]! + 1

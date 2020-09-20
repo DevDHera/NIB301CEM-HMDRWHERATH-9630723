@@ -440,6 +440,7 @@
                         <outlet property="lastUpdatedAtLabel" destination="k8g-CU-UHm" id="5J5-0Z-wJX"/>
                         <outlet property="newSurveyView" destination="HdD-ie-vfm" id="PDK-3s-yUb"/>
                         <segue destination="c9c-gL-d0T" kind="show" identifier="StatusToCreateNotification" id="pkx-h1-LUm"/>
+                        <segue destination="Cqs-IF-YVg" kind="show" identifier="StatusToSurvey" id="AI4-Jl-W7N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5IC-Py-o2o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -490,7 +491,76 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkQ-3c-hSN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="630.43478260869574" y="2572.7678571428569"/>
+            <point key="canvasLocation" x="112" y="2585"/>
+        </scene>
+        <!--Survey View Controller-->
+        <scene sceneID="2hL-MB-UmQ">
+            <objects>
+                <viewController id="Cqs-IF-YVg" customClass="SurveyViewController" customModule="HMDRWHERATH_9630723_COBSCCOMP191P_008" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eYr-s0-oIM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="survey-3" translatesAutoresizingMaskIntoConstraints="NO" id="d93-IW-csv">
+                                <rect key="frame" x="57" y="154" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AVOID CROWDED PLACES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ym-KO-vUT">
+                                <rect key="frame" x="105" y="479" width="205" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Have you been exposed to crowded places?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dki-gZ-oSI">
+                                <rect key="frame" x="57" y="599" width="300" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7d-OT-hJL">
+                                <rect key="frame" x="57" y="759" width="114" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="YES">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="answerPressed:" destination="Cqs-IF-YVg" eventType="touchUpInside" id="WVN-dP-SSY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRU-ah-y0U">
+                                <rect key="frame" x="243" y="759" width="114" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="NO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="answerPressed:" destination="Cqs-IF-YVg" eventType="touchUpInside" id="i1x-S4-cTi"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dix-BF-I0Q">
+                                <rect key="frame" x="0.0" y="88" width="427" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="4WN-1I-Zey"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cWW-us-7Fp"/>
+                    <connections>
+                        <outlet property="noButton" destination="yRU-ah-y0U" id="pbD-wD-kNY"/>
+                        <outlet property="progressView" destination="dix-BF-I0Q" id="q4Y-tF-o4C"/>
+                        <outlet property="surveyImage" destination="d93-IW-csv" id="xyD-EE-FXe"/>
+                        <outlet property="surveyQuestionLabel" destination="dki-gZ-oSI" id="4Hw-C9-znu"/>
+                        <outlet property="surveyTitleLabel" destination="5Ym-KO-vUT" id="8nT-8x-qPd"/>
+                        <outlet property="yesButton" destination="a7d-OT-hJL" id="jq4-I7-hVU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DnX-Fs-qbY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1063.768115942029" y="2584.8214285714284"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="EFp-8x-tWW">
@@ -909,5 +979,6 @@
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="nibm-logo" width="100" height="33.5"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="survey-3" width="133" height="133"/>
     </resources>
 </document>

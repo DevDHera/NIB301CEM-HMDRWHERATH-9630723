@@ -21,6 +21,9 @@
 		6B6CDA3D25146B04000C1D63 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6CDA3C25146B04000C1D63 /* ContactUsViewController.swift */; };
 		6B6CDA3F25146BA9000C1D63 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6CDA3E25146BA9000C1D63 /* ShareViewController.swift */; };
 		6B7B9942251598D0007ED221 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7B9941251598D0007ED221 /* MapViewController.swift */; };
+		6B9D6C9525172CE900919DDA /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9D6C9425172CE900919DDA /* SurveyViewController.swift */; };
+		6B9D6C97251731C800919DDA /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9D6C96251731C800919DDA /* Survey.swift */; };
+		6B9D6C99251732BF00919DDA /* SurveyBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9D6C98251732BF00919DDA /* SurveyBrain.swift */; };
 		6BA102202513DA54003AED13 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA1021F2513DA54003AED13 /* StatusViewController.swift */; };
 		6BA102242513F1B0003AED13 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA102232513F1B0003AED13 /* SettingsViewController.swift */; };
 		6BA8362E25161C860004F2C7 /* CreateNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA8362D25161C860004F2C7 /* CreateNotificationViewController.swift */; };
@@ -47,6 +50,9 @@
 		6B6CDA3C25146B04000C1D63 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		6B6CDA3E25146BA9000C1D63 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		6B7B9941251598D0007ED221 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		6B9D6C9425172CE900919DDA /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+		6B9D6C96251731C800919DDA /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
+		6B9D6C98251732BF00919DDA /* SurveyBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyBrain.swift; sourceTree = "<group>"; };
 		6BA1021F2513DA54003AED13 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		6BA102232513F1B0003AED13 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6BA8362D25161C860004F2C7 /* CreateNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotificationViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +102,7 @@
 				6B7B9941251598D0007ED221 /* MapViewController.swift */,
 				6BA8362D25161C860004F2C7 /* CreateNotificationViewController.swift */,
 				6B0AF46125165C58004717CB /* NotificationsViewController.swift */,
+				6B9D6C9425172CE900919DDA /* SurveyViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -113,6 +120,8 @@
 			children = (
 				6B6CDA3725146196000C1D63 /* Cell.swift */,
 				6B0115C82515449100A27D54 /* User.swift */,
+				6B9D6C96251731C800919DDA /* Survey.swift */,
+				6B9D6C98251732BF00919DDA /* SurveyBrain.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -289,8 +298,10 @@
 			files = (
 				6BA8362E25161C860004F2C7 /* CreateNotificationViewController.swift in Sources */,
 				6B3E07992513426900D34727 /* LoginViewController.swift in Sources */,
+				6B9D6C9525172CE900919DDA /* SurveyViewController.swift in Sources */,
 				6B3EE5C72514889E00788194 /* Service.swift in Sources */,
 				6B3E079B2513429300D34727 /* RegisterViewController.swift in Sources */,
+				6B9D6C99251732BF00919DDA /* SurveyBrain.swift in Sources */,
 				6B6CDA3B25146943000C1D63 /* ProfileViewController.swift in Sources */,
 				6BA102242513F1B0003AED13 /* SettingsViewController.swift in Sources */,
 				6BFCE53A25133D670010A5D8 /* HomeViewContoller.swift in Sources */,
@@ -303,6 +314,7 @@
 				6BA102202513DA54003AED13 /* StatusViewController.swift in Sources */,
 				6BFCE53825133D670010A5D8 /* SceneDelegate.swift in Sources */,
 				6B6CDA3425145954000C1D63 /* Constants.swift in Sources */,
+				6B9D6C97251731C800919DDA /* Survey.swift in Sources */,
 				6B7B9942251598D0007ED221 /* MapViewController.swift in Sources */,
 				6B6CDA3D25146B04000C1D63 /* ContactUsViewController.swift in Sources */,
 			);

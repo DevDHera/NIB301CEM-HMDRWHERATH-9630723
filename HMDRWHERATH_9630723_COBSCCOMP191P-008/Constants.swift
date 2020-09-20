@@ -14,6 +14,7 @@ struct Constants {
     static let settingsToContactUsSegue = "SettingsToContactUs"
     static let settingsToShareSegue = "SettingsToShare"
     static let statusToCreateNotification = "StatusToCreateNotification"
+    static let statusToSurvey = "StatusToSurvey"
     
 //    VIEWS
     static let settingsName = "Settings"
@@ -40,6 +41,7 @@ struct Constants {
         static let profileImageField = "profileImage"
         static let location = "location"
         static let covidStatus = "covidStatus"
+        static let surveyResultField = "surveyResult"
     }
     
     struct NotificationStore {

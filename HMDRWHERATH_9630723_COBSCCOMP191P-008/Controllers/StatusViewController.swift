@@ -29,6 +29,9 @@ class StatusViewController: UIViewController {
         let createNoticationViewWithAction = UITapGestureRecognizer(target: self, action: #selector(createNotificationAction(_:)))
         createNotificationView.addGestureRecognizer(createNoticationViewWithAction)
         
+        let newSurveyViewWithAction = UITapGestureRecognizer(target: self, action: #selector(surveyAction(_:)))
+        newSurveyView.addGestureRecognizer(newSurveyViewWithAction)
+        
         fetchUser()
     }
     
@@ -47,18 +50,6 @@ class StatusViewController: UIViewController {
     }
     
     func fetchUser()  {
-        //        db.collection(Constants.UserStore.collectionName).getDocuments { (querySnapshot, error) in
-        //            if let e = error {
-        //                print(e.localizedDescription)
-        //            } else {
-        //
-        //                if let snapshotDocuemnts = querySnapshot?.documents {
-        //                    for doc in snapshotDocuemnts {
-        //                        print(doc.data())
-        //                    }
-        //                }
-        //            }
-        //        }
         if let uid = Auth.auth().currentUser?.uid {
             let alertViewResponder: SCLAlertViewResponder = SCLAlertView().showWait("Fetching...", subTitle: "Wait until we fetch your data")
             
@@ -102,6 +93,10 @@ class StatusViewController: UIViewController {
     
     @objc func createNotificationAction(_ sender:UITapGestureRecognizer){
         performSegue(withIdentifier: Constants.statusToCreateNotification, sender: self)
+    }
+    
+    @objc func surveyAction(_ sender:UITapGestureRecognizer){
+        performSegue(withIdentifier: Constants.statusToSurvey, sender: self)
     }
     
     @IBAction func updateBodyTempPressed(_ sender: Any) {

@@ -15,6 +15,18 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    private let validation: ValidationService
+    
+    init(validation: ValidationService) {
+        self.validation = validation
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.validation = ValidationService()
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -34,17 +46,34 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signInPressed(_ sender: UIButton) {
-        if let email = emailTextField.text, let password = passwordTextField.text {
+        do {
+            let email = try validation.validateEmail(emailTextField.text)
+            let password = try validation.validatePassword(passwordTextField.text)
+            
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if let e = error {
                     print(e)
-                    SCLAlertView().showError("Registration Error", subTitle: e.localizedDescription)
+                    SCLAlertView().showError("Login Error", subTitle: e.localizedDescription)
                 } else {
                     self.emailTextField.text = ""
                     self.passwordTextField.text = ""
                     self.performSegue(withIdentifier: Constants.loginSegue, sender: self)
                 }
             }
+        } catch {
+            SCLAlertView().showError("Login Error", subTitle: error.localizedDescription)
         }
+//        if let email = emailTextField.text, let password = passwordTextField.text {
+//            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+//                if let e = error {
+//                    print(e)
+//                    SCLAlertView().showError("Login Error", subTitle: e.localizedDescription)
+//                } else {
+//                    self.emailTextField.text = ""
+//                    self.passwordTextField.text = ""
+//                    self.performSegue(withIdentifier: Constants.loginSegue, sender: self)
+//                }
+//            }
+//        }
     }
 }

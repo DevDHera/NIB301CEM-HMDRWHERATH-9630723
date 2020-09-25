@@ -11,5 +11,10 @@ target 'HMDRWHERATH_9630723_COBSCCOMP191P-008' do
   pod 'Firebase/Storage'
   
   pod 'SCLAlertView'
+  
+  target 'HMDRWHERATH_9630723_COBSCCOMP191P-008Tests' do
+    inherit! :search_paths
+  end
+
 
 end

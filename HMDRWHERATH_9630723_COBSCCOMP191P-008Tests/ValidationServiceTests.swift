@@ -7,27 +7,78 @@
 //
 
 import XCTest
+@testable import HMDRWHERATH_9630723_COBSCCOMP191P_008
 
 class ValidationServiceTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var validation: ValidationService!
+    
+    override func setUp() {
+        super.setUp()
+        validation = ValidationService()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        validation = nil
+        super.tearDown()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func test_is_valid_email() throws {
+        XCTAssertNoThrow(try validation.validateEmail("test001@gmail.com"))
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func test_email_is_nil() throws {
+        let expectedError = ValidationError.invalidValue
+        var error: ValidationError?
+        
+        XCTAssertThrowsError(try validation.validateEmail(nil)) {
+            thrownError in
+            error = thrownError as? ValidationError
         }
+        
+        XCTAssertEqual(expectedError, error)
+        XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
     }
-
+    
+    func test_email_is_valid_format() throws {
+        let expectedError = ValidationError.invalidEmail
+        var error: ValidationError?
+        
+        XCTAssertThrowsError(try validation.validateEmail("test")) {
+            thrownError in
+            error = thrownError as? ValidationError
+        }
+        
+        XCTAssertEqual(expectedError, error)
+        XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
+    }
+    
+    func test_is_valid_password() throws {
+        XCTAssertNoThrow(try validation.validatePassword("123456"))
+    }
+    
+    func test_password_is_nil() throws {
+        let expectedError = ValidationError.invalidValue
+        var error: ValidationError?
+        
+        XCTAssertThrowsError(try validation.validatePassword(nil)) {
+            thrownError in
+            error = thrownError as? ValidationError
+        }
+        
+        XCTAssertEqual(expectedError, error)
+        XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
+    }
+    
+    func test_password_is_too_short() throws {
+        let expectedError = ValidationError.passwordTooShort
+        var error: ValidationError?
+        
+        XCTAssertThrowsError(try validation.validatePassword("test")) {
+            thrownError in
+            error = thrownError as? ValidationError
+        }
+        
+        XCTAssertEqual(expectedError, error)
+        XCTAssertEqual(expectedError.errorDescription, error?.errorDescription)
+    }
 }

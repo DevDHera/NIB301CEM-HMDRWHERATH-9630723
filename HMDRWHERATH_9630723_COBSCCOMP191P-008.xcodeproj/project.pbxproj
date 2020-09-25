@@ -12,6 +12,7 @@
 		6B0AF46225165C58004717CB /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0AF46125165C58004717CB /* NotificationsViewController.swift */; };
 		6B1DBC452515EAEF00C51ACB /* ColorPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1DBC442515EAEF00C51ACB /* ColorPointAnnotation.swift */; };
 		6B24385625176728003A881B /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B24385525176728003A881B /* CustomPageViewController.swift */; };
+		6B3A532D251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P_008Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A532C251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P_008Tests.swift */; };
 		6B3E07992513426900D34727 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E07982513426900D34727 /* LoginViewController.swift */; };
 		6B3E079B2513429300D34727 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E079A2513429300D34727 /* RegisterViewController.swift */; };
 		6B3EE5C72514889E00788194 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EE5C62514889E00788194 /* Service.swift */; };
@@ -40,6 +41,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6B3A532F251E77E700A12344 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BFCE52A25133D670010A5D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BFCE53125133D670010A5D8;
+			remoteInfo = "HMDRWHERATH_9630723_COBSCCOMP191P-008";
+		};
 		6BFE3C2F2517C7DB00BD6650 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6BFCE52A25133D670010A5D8 /* Project object */;
@@ -55,6 +63,9 @@
 		6B0AF46125165C58004717CB /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		6B1DBC442515EAEF00C51ACB /* ColorPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPointAnnotation.swift; sourceTree = "<group>"; };
 		6B24385525176728003A881B /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
+		6B3A532A251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P-008Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HMDRWHERATH_9630723_COBSCCOMP191P-008Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B3A532C251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P_008Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMDRWHERATH_9630723_COBSCCOMP191P_008Tests.swift; sourceTree = "<group>"; };
+		6B3A532E251E77E700A12344 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B3E07982513426900D34727 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6B3E079A2513429300D34727 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		6B3EE5C62514889E00788194 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -89,6 +100,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6B3A5327251E77E700A12344 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BFCE52F25133D670010A5D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -107,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B3A532B251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P-008Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6B3A532C251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P_008Tests.swift */,
+				6B3A532E251E77E700A12344 /* Info.plist */,
+			);
+			path = "HMDRWHERATH_9630723_COBSCCOMP191P-008Tests";
+			sourceTree = "<group>";
+		};
 		6B3E0796251340EB00D34727 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +188,7 @@
 			children = (
 				6BFCE53425133D670010A5D8 /* HMDRWHERATH_9630723_COBSCCOMP191P-008 */,
 				6BFE3C2B2517C7DB00BD6650 /* HMDRWHERATH_9630723_COBSCCOMP191P-008UITests */,
+				6B3A532B251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P-008Tests */,
 				6BFCE53325133D670010A5D8 /* Products */,
 				8149FED0EB4C66A1E90AC8A1 /* Pods */,
 				C5C09EB57A77D5788ED0A36D /* Frameworks */,
@@ -172,6 +200,7 @@
 			children = (
 				6BFCE53225133D670010A5D8 /* HMDRWHERATH_9630723_COBSCCOMP191P-008.app */,
 				6BFE3C2A2517C7DB00BD6650 /* HMDRWHERATH_9630723_COBSCCOMP191P-008UITests.xctest */,
+				6B3A532A251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P-008Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,6 +253,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6B3A5329251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P-008Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B3A5333251E77E700A12344 /* Build configuration list for PBXNativeTarget "HMDRWHERATH_9630723_COBSCCOMP191P-008Tests" */;
+			buildPhases = (
+				6B3A5326251E77E700A12344 /* Sources */,
+				6B3A5327251E77E700A12344 /* Frameworks */,
+				6B3A5328251E77E700A12344 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6B3A5330251E77E700A12344 /* PBXTargetDependency */,
+			);
+			name = "HMDRWHERATH_9630723_COBSCCOMP191P-008Tests";
+			productName = "HMDRWHERATH_9630723_COBSCCOMP191P-008Tests";
+			productReference = 6B3A532A251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P-008Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6BFCE53125133D670010A5D8 /* HMDRWHERATH_9630723_COBSCCOMP191P-008 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BFCE54625133D680010A5D8 /* Build configuration list for PBXNativeTarget "HMDRWHERATH_9630723_COBSCCOMP191P-008" */;
@@ -271,6 +318,10 @@
 				LastUpgradeCheck = 1170;
 				ORGANIZATIONNAME = "Devin Herath";
 				TargetAttributes = {
+					6B3A5329251E77E700A12344 = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = 6BFCE53125133D670010A5D8;
+					};
 					6BFCE53125133D670010A5D8 = {
 						CreatedOnToolsVersion = 11.7;
 					};
@@ -295,11 +346,19 @@
 			targets = (
 				6BFCE53125133D670010A5D8 /* HMDRWHERATH_9630723_COBSCCOMP191P-008 */,
 				6BFE3C292517C7DB00BD6650 /* HMDRWHERATH_9630723_COBSCCOMP191P-008UITests */,
+				6B3A5329251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P-008Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6B3A5328251E77E700A12344 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BFCE53025133D670010A5D8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -363,6 +422,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6B3A5326251E77E700A12344 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B3A532D251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P_008Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BFCE52E25133D670010A5D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,6 +472,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6B3A5330251E77E700A12344 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6BFCE53125133D670010A5D8 /* HMDRWHERATH_9630723_COBSCCOMP191P-008 */;
+			targetProxy = 6B3A532F251E77E700A12344 /* PBXContainerItemProxy */;
+		};
 		6BFE3C302517C7DB00BD6650 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6BFCE53125133D670010A5D8 /* HMDRWHERATH_9630723_COBSCCOMP191P-008 */;
@@ -432,6 +504,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6B3A5331251E77E700A12344 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "HMDRWHERATH_9630723_COBSCCOMP191P-008Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.95revolution.HMDRWHERATH-9630723-COBSCCOMP191P-008Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HMDRWHERATH_9630723_COBSCCOMP191P-008.app/HMDRWHERATH_9630723_COBSCCOMP191P-008";
+			};
+			name = Debug;
+		};
+		6B3A5332251E77E700A12344 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "HMDRWHERATH_9630723_COBSCCOMP191P-008Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.95revolution.HMDRWHERATH-9630723-COBSCCOMP191P-008Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HMDRWHERATH_9630723_COBSCCOMP191P-008.app/HMDRWHERATH_9630723_COBSCCOMP191P-008";
+			};
+			name = Release;
+		};
 		6BFCE54425133D680010A5D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -621,6 +731,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6B3A5333251E77E700A12344 /* Build configuration list for PBXNativeTarget "HMDRWHERATH_9630723_COBSCCOMP191P-008Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B3A5331251E77E700A12344 /* Debug */,
+				6B3A5332251E77E700A12344 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6BFCE52D25133D670010A5D8 /* Build configuration list for PBXProject "HMDRWHERATH_9630723_COBSCCOMP191P-008" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

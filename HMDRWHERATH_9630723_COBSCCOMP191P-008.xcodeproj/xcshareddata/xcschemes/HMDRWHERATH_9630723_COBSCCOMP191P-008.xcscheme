@@ -38,6 +38,16 @@
                ReferencedContainer = "container:HMDRWHERATH_9630723_COBSCCOMP191P-008.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6B3A5329251E77E700A12344"
+               BuildableName = "HMDRWHERATH_9630723_COBSCCOMP191P-008Tests.xctest"
+               BlueprintName = "HMDRWHERATH_9630723_COBSCCOMP191P-008Tests"
+               ReferencedContainer = "container:HMDRWHERATH_9630723_COBSCCOMP191P-008.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

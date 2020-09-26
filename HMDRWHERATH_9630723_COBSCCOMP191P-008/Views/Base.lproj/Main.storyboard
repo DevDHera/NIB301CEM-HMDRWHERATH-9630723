@@ -944,6 +944,14 @@
                                     <segue destination="YgN-dq-Zdq" kind="show" id="Mme-tV-jOW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fN9-F8-h9y">
+                                <rect key="frame" x="163" y="541" width="88" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="faceid" catalog="system"/>
+                                <connections>
+                                    <action selector="signInWithBiometricsPressed:" destination="98k-nn-eDT" eventType="touchUpInside" id="gmE-uc-aiw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -972,6 +980,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="biometricButton" destination="fN9-F8-h9y" id="3Wv-6r-nna"/>
                         <outlet property="emailTextField" destination="b06-yl-Uu8" id="Udf-YL-1Sp"/>
                         <outlet property="passwordTextField" destination="o4A-eX-KFw" id="cRs-97-ETM"/>
                         <segue destination="7PE-Bu-d0h" kind="show" identifier="LoginToStatus" id="uQe-h8-57a"/>
@@ -1090,6 +1099,7 @@
                         <segue destination="366-f4-4dj" kind="show" identifier="SettingsToProfile" id="wy5-9e-bZ3"/>
                         <segue destination="cdJ-Xx-Wye" kind="show" identifier="SettingsToContactUs" id="oEw-W2-sJ0"/>
                         <segue destination="bIL-vZ-0Fb" kind="show" identifier="SettingsToShare" id="c7f-Tf-Yfz"/>
+                        <segue destination="9PH-jK-DV9" kind="show" identifier="SettingsToBiometric" id="2pO-Rx-u75"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZy-0M-1WL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1196,6 +1206,56 @@
             </objects>
             <point key="canvasLocation" x="4352" y="1051"/>
         </scene>
+        <!--Biometric View Controller-->
+        <scene sceneID="C8R-9L-ddv">
+            <objects>
+                <viewController id="9PH-jK-DV9" customClass="BiometricViewController" customModule="HMDRWHERATH_9630723_COBSCCOMP191P_008" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1mz-AJ-w8O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Protect your Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbC-hH-kz9">
+                                <rect key="frame" x="96" y="202" width="223" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Keep your data safe by enablling Biometrics" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWx-xn-F46">
+                                <rect key="frame" x="73" y="286" width="268" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="faceid" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="B0S-Nt-xVS">
+                                <rect key="frame" x="142" y="423" width="130" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeW-GP-FoH">
+                                <rect key="frame" x="0.0" y="764" width="414" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Enable Biometrics">
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="enableBiometricPressed:" destination="9PH-jK-DV9" eventType="touchUpInside" id="z5q-bB-pWf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="XxQ-OQ-bRa"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HhJ-LQ-Kwf"/>
+                    <connections>
+                        <outlet property="biometricImage" destination="B0S-Nt-xVS" id="V97-Vt-DdM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x85-1T-5iW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5228.985507246377" y="1050.6696428571429"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="uPh-ut-m3z">
             <objects>
@@ -1236,12 +1296,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="s4B-OF-zUr"/>
+        <segue reference="uQe-h8-57a"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bell" catalog="system" width="128" height="124"/>
         <image name="camera" catalog="system" width="128" height="96"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="faceid" catalog="system" width="128" height="114"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="heart.circle" catalog="system" width="128" height="121"/>
         <image name="heart.slash.circle" catalog="system" width="128" height="121"/>

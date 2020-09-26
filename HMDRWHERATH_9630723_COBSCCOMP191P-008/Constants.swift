@@ -13,6 +13,7 @@ struct Constants {
     static let settingsToProfileSegue = "SettingsToProfile"
     static let settingsToContactUsSegue = "SettingsToContactUs"
     static let settingsToShareSegue = "SettingsToShare"
+    static let settingsToBiometircSegue = "SettingsToBiometric"
     static let statusToCreateNotification = "StatusToCreateNotification"
     static let statusToSurvey = "StatusToSurvey"
     
@@ -56,4 +57,8 @@ struct Constants {
     struct Storage {
         static let path = "uploads/profile"
     }
+    
+//    Keychain
+    static let biometricEnabled = "biometricEnabled"
+    static let userName = "username"
 }

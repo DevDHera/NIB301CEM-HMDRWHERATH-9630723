@@ -64,5 +64,7 @@
 	<string>Please allow access to upload profile photo.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Please allow to access the current location to map you within the COVID range</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Please allow FaceID access to protect your data and quickly login</string>
 </dict>
 </plist>

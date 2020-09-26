@@ -18,7 +18,8 @@ class SettingsViewController: UIViewController {
     var settingsCells: [SettingsCell] = [
         SettingsCell(title: "Profile", segue: Constants.settingsToProfileSegue),
         SettingsCell(title: "Contact Us / About Us", segue: Constants.settingsToContactUsSegue),
-        SettingsCell(title: "Share with Friend", segue: Constants.settingsToShareSegue)
+        SettingsCell(title: "Share with Friend", segue: Constants.settingsToShareSegue),
+        SettingsCell(title: "Enable Biometrics", segue: Constants.settingsToBiometircSegue)
     ]
     
     override func viewDidLoad() {
@@ -73,6 +74,11 @@ extension SettingsViewController: UITableViewDataSource {
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if Auth.auth().currentUser == nil, indexPath.row == 0 {
+            SCLAlertView().showInfo("Not logged in", subTitle: "Please logged in to access this functionality")
+            return
+        }
+        
+        if Auth.auth().currentUser == nil, indexPath.row == 3 {
             SCLAlertView().showInfo("Not logged in", subTitle: "Please logged in to access this functionality")
             return
         }

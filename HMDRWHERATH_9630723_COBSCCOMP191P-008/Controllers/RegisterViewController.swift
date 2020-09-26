@@ -60,6 +60,8 @@ class RegisterViewController: UIViewController {
                             if let err = error {
                                 SCLAlertView().showError("Firestore Error", subTitle: err.localizedDescription)
                             } else {
+                                self.saveUserCredentials(username: email, password: password)
+                                
                                 self.firstNameTextField.text = ""
                                 self.lastNameTextField.text = ""
                                 self.emailTextField.text = ""
@@ -71,6 +73,23 @@ class RegisterViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func saveUserCredentials(username: String, password: String) {
+        //                        save username into defaults
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(username, forKey: Constants.userName)
+        userDefaults.synchronize()
+        
+        //                        save password into keychain
+        let passwordItem = KeychainPasswordItem(service: KeychainConfig.serviceName, account: username, accessGroup: KeychainConfig.accessGroup)
+        
+        do {
+            try passwordItem.savePassword(password)
+        } catch let err {
+            fatalError("Error updating keychain: \(err.localizedDescription)")
+        }
+        
     }
 }
 

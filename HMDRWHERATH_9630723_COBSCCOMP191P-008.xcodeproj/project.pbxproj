@@ -10,6 +10,10 @@
 		387F35E258F5E1DE61E81C35 /* Pods_HMDRWHERATH_9630723_COBSCCOMP191P_008.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CDE71DB25DF2CE5EE5039C /* Pods_HMDRWHERATH_9630723_COBSCCOMP191P_008.framework */; };
 		6B0115C92515449100A27D54 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0115C82515449100A27D54 /* User.swift */; };
 		6B0AF46225165C58004717CB /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0AF46125165C58004717CB /* NotificationsViewController.swift */; };
+		6B19686C251F6A7B009AD457 /* BiometricAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B19686B251F6A7B009AD457 /* BiometricAuthService.swift */; };
+		6B19686E251F7310009AD457 /* BiometricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B19686D251F7310009AD457 /* BiometricViewController.swift */; };
+		6B196870251F7791009AD457 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B19686F251F7791009AD457 /* KeychainPasswordItem.swift */; };
+		6B196872251F780B009AD457 /* KeychainConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B196871251F780B009AD457 /* KeychainConfig.swift */; };
 		6B1DBC452515EAEF00C51ACB /* ColorPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1DBC442515EAEF00C51ACB /* ColorPointAnnotation.swift */; };
 		6B24385625176728003A881B /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B24385525176728003A881B /* CustomPageViewController.swift */; };
 		6B3A532D251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P_008Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A532C251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P_008Tests.swift */; };
@@ -66,6 +70,10 @@
 		4C590E9FA3A88175DFA8847C /* Pods-HMDRWHERATH_9630723_COBSCCOMP191P-008Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HMDRWHERATH_9630723_COBSCCOMP191P-008Tests.release.xcconfig"; path = "Target Support Files/Pods-HMDRWHERATH_9630723_COBSCCOMP191P-008Tests/Pods-HMDRWHERATH_9630723_COBSCCOMP191P-008Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6B0115C82515449100A27D54 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6B0AF46125165C58004717CB /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		6B19686B251F6A7B009AD457 /* BiometricAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthService.swift; sourceTree = "<group>"; };
+		6B19686D251F7310009AD457 /* BiometricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricViewController.swift; sourceTree = "<group>"; };
+		6B19686F251F7791009AD457 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		6B196871251F780B009AD457 /* KeychainConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfig.swift; sourceTree = "<group>"; };
 		6B1DBC442515EAEF00C51ACB /* ColorPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPointAnnotation.swift; sourceTree = "<group>"; };
 		6B24385525176728003A881B /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		6B3A532A251E77E700A12344 /* HMDRWHERATH_9630723_COBSCCOMP191P-008Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HMDRWHERATH_9630723_COBSCCOMP191P-008Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +178,7 @@
 				6BE86DD325175C96004A9513 /* SafeActionsViewController.swift */,
 				6BE86DD525175E19004A9513 /* DataViewController.swift */,
 				6B24385525176728003A881B /* CustomPageViewController.swift */,
+				6B19686D251F7310009AD457 /* BiometricViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -179,6 +188,9 @@
 			children = (
 				6B3EE5C62514889E00788194 /* Service.swift */,
 				6B3A5334251E7B7E00A12344 /* ValidationService.swift */,
+				6B19686B251F6A7B009AD457 /* BiometricAuthService.swift */,
+				6B19686F251F7791009AD457 /* KeychainPasswordItem.swift */,
+				6B196871251F780B009AD457 /* KeychainConfig.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -475,17 +487,21 @@
 				6BA8362E25161C860004F2C7 /* CreateNotificationViewController.swift in Sources */,
 				6B3E07992513426900D34727 /* LoginViewController.swift in Sources */,
 				6B9D6C9525172CE900919DDA /* SurveyViewController.swift in Sources */,
+				6B196870251F7791009AD457 /* KeychainPasswordItem.swift in Sources */,
 				6B3EE5C72514889E00788194 /* Service.swift in Sources */,
 				6BE86DD625175E19004A9513 /* DataViewController.swift in Sources */,
 				6B3E079B2513429300D34727 /* RegisterViewController.swift in Sources */,
 				6B3A5335251E7B7E00A12344 /* ValidationService.swift in Sources */,
 				6BE86DD425175C96004A9513 /* SafeActionsViewController.swift in Sources */,
 				6B9D6C99251732BF00919DDA /* SurveyBrain.swift in Sources */,
+				6B19686E251F7310009AD457 /* BiometricViewController.swift in Sources */,
 				6B24385625176728003A881B /* CustomPageViewController.swift in Sources */,
 				6B6CDA3B25146943000C1D63 /* ProfileViewController.swift in Sources */,
+				6B196872251F780B009AD457 /* KeychainConfig.swift in Sources */,
 				6BA102242513F1B0003AED13 /* SettingsViewController.swift in Sources */,
 				6BFCE53A25133D670010A5D8 /* HomeViewContoller.swift in Sources */,
 				6B0115C92515449100A27D54 /* User.swift in Sources */,
+				6B19686C251F6A7B009AD457 /* BiometricAuthService.swift in Sources */,
 				6BFCE53625133D670010A5D8 /* AppDelegate.swift in Sources */,
 				6B0AF46225165C58004717CB /* NotificationsViewController.swift in Sources */,
 				6B6CDA3F25146BA9000C1D63 /* ShareViewController.swift in Sources */,
